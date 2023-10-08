@@ -4,7 +4,10 @@
       <router-link :to="{ name: 'home' }" class="app-title">
         <v-img class="header-logo" src="../assets/applogo.svg"></v-img>
       </router-link>
-      <v-toolbar-title class="ml-12 nav-bar-list-items">
+      <v-toolbar-title
+        v-if="getLoggedInStatus"
+        class="ml-12 nav-bar-list-items"
+      >
         <v-row align="center" class="nav-bar-list-items-row">
           <v-col
             v-for="(item, index) in navItems"
@@ -13,7 +16,9 @@
             class="nav-bar-list-items-col"
           >
             <v-icon dark @click="navigate(item.route)">{{ item.icon }}</v-icon>
-            <p class="white--text mt-5 pl-1">
+            <p
+              class="white--text mt-5 pl-1 headline nav-bar-list-items-col-label"
+            >
               {{ uppercase(item.label) }}
             </p>
           </v-col>
@@ -21,8 +26,9 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <template v-if="getLoggedInStatus">
-        <v-btn icon dark @click="logout">
-          <v-icon>mdi-logout</v-icon>
+        <v-btn dark @click="logout" class="mr-5 title">
+          <v-icon left>mdi-logout</v-icon>
+          Logout
         </v-btn>
       </template>
     </v-app-bar>

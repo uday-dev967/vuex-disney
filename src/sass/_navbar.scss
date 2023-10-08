@@ -7,14 +7,19 @@
   .nav-bar {
     height: 20vh;
     .header-logo {
-      width: 7rem;
+      width: 10rem;
     }
     &-list-items {
       &-row {
+        padding-left: 1rem;
+        padding-right: 1rem;
         .nav-bar-list-items-col {
           display: flex;
-          justify-content: center;
           align-items: center;
+          &:hover {
+            background-color: gray;
+            cursor: pointer;
+          }
         }
       }
     }

@@ -1,7 +1,9 @@
 <template>
   <v-app class="app">
     <nav-bar></nav-bar>
-    <router-view :key="$route.fullPath" />
+    <v-content>
+      <router-view :key="$route.fullPath" />
+    </v-content>
   </v-app>
 </template>
 
