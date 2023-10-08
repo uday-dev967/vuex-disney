@@ -4,7 +4,21 @@
       <router-link :to="{ name: 'home' }" class="app-title">
         <v-img class="header-logo" src="../assets/applogo.svg"></v-img>
       </router-link>
-
+      <v-toolbar-title class="ml-12 nav-bar-list-items">
+        <v-row align="center" class="nav-bar-list-items-row">
+          <v-col
+            v-for="(item, index) in navItems"
+            :key="index"
+            cols="auto"
+            class="nav-bar-list-items-col"
+          >
+            <v-icon dark @click="navigate(item.route)">{{ item.icon }}</v-icon>
+            <p class="white--text mt-5 pl-1">
+              {{ uppercase(item.label) }}
+            </p>
+          </v-col>
+        </v-row>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <template v-if="getLoggedInStatus">
         <v-btn icon dark @click="logout">
@@ -17,11 +31,19 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import mixins from "../mixins/mixin.js";
 export default {
   name: "Nav-bar",
   data() {
     return {
-      searchInput: "",
+      navItems: [
+        { label: "Home", icon: "mdi-home", route: "/home" },
+        { label: "sreach", icon: "mdi-magnify", route: "/home" },
+        { label: "watchlist", icon: "mdi-plus", route: "/home" },
+        { label: "original", icon: "mdi-star", route: "/home" },
+        { label: "movies", icon: "mdi-movie", route: "/home" },
+        { label: "series", icon: "mdi-television", route: "/home" },
+      ],
     };
   },
   computed: {
@@ -40,6 +62,7 @@ export default {
       this.$store.dispatch("user/logout");
     },
   },
+  mixins: [mixins],
 };
 </script>
 <style></style>
