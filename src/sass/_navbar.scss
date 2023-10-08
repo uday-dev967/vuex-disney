@@ -9,5 +9,14 @@
     .header-logo {
       width: 7rem;
     }
+    &-list-items {
+      &-row {
+        .nav-bar-list-items-col {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
   }
 }
