@@ -1,0 +1,13 @@
+.nav-bar-container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  z-index: 100;
+  .nav-bar {
+    height: 20vh;
+    .header-logo {
+      width: 7rem;
+    }
+  }
+}
