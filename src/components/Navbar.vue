@@ -17,7 +17,7 @@
           >
             <v-icon dark @click="navigate(item.route)">{{ item.icon }}</v-icon>
             <p
-              class="white--text mt-5 pl-1 headline nav-bar-list-items-col-label"
+              class="white--text mt-5 pl-1 caption nav-bar-list-items-col-label"
             >
               {{ uppercase(item.label) }}
             </p>
@@ -26,7 +26,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <template v-if="getLoggedInStatus">
-        <v-btn dark @click="logout" class="mr-5 title">
+        <v-btn dark @click="logout" class="mr-5">
           <v-icon left>mdi-logout</v-icon>
           Logout
         </v-btn>

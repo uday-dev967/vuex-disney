@@ -1,20 +1,19 @@
 <template>
   <div class="home">
-    <h1>Home1</h1>
-    <h1>Home2</h1>
-    <h1>Home3</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
+    Home
+    <carousel></carousel>
   </div>
 </template>
 
 <script>
+import Carousel from "../components/Carousel.vue";
 export default {
   name: "Home-view",
+  components: {
+    carousel: Carousel,
+  },
+  data() {
+    return {};
+  },
 };
 </script>

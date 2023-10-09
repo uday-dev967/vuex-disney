@@ -1,9 +1,9 @@
 <template>
   <v-app class="app">
     <nav-bar></nav-bar>
-    <v-content>
+    <v-main class="app-content">
       <router-view :key="$route.fullPath" />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

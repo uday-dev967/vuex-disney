@@ -18,7 +18,9 @@
         required
       ></v-text-field>
       <p v-if="getLoginErrors.isError">{{ getLoginErrors.errMsg }}</p>
-      <v-btn class="mr-4" type="submit" color="blue"> Login </v-btn>
+      <v-btn class="mr-4 headline" type="submit" color="blue white--text">
+        Login
+      </v-btn>
     </v-form>
   </div>
 </template>
