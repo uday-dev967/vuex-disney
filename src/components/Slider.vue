@@ -1,18 +1,17 @@
 <template>
   <div class="wrapper">
     <h2 class="category-title">{{ videoByCategory.name }}</h2>
-    <ul class="carousel">
+    <ul class="category-carousel">
       <li
         v-for="(video, index) in videoByCategory.thumbnails"
         :key="index"
-        class="card"
+        class="category-carousel-card"
       >
-        <div class="img__container">
+        <div class="category-carousel-img__container">
           <img
             src="../assets/disney-thumbnail1.jpg"
-            draggable="false"
             :alt="video.title"
-            class="img"
+            class="category-carousel-card-img"
           />
         </div>
       </li>
