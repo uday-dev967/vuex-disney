@@ -6,5 +6,175 @@
       "email": "uday123@gmail.com",
       "password": "1235678"
     }
+  ],
+  "vidoe_categories": [
+    {
+      "id": 1,
+      "name": "Disney Movies",
+      "thumbnails": [
+        {
+          "id": 1,
+          "thumnail": "../assets/disney-thumbnail1.jpg",
+          "title": "Video1"
+        },
+        {
+          "id": 2,
+          "thumnail": "../assets/disney-thumbnail2.jpg",
+          "title": "Video2"
+        },
+        {
+          "id": 3,
+          "thumnail": "../assets/disney-thumbnail3.jpg",
+          "title": "Video3"
+        },
+        {
+          "id": 4,
+          "thumnail": "../assets/disney-thumbnail4.jpg",
+          "title": "Video4"
+        },
+        {
+          "id": 5,
+          "thumnail": "../assets/disney-thumbnail5.jpg",
+          "title": "Video5"
+        },
+        {
+          "id": 6,
+          "thumnail": "../assets/disney-thumbnail6.jpg",
+          "title": "Video6"
+        },
+        {
+          "id": 7,
+          "thumnail": "../assets/disney-thumbnail7.jpg",
+          "title": "Video7"
+        },
+        {
+          "id": 8,
+          "thumnail": "../assets/disney-thumbnail8.jpg",
+          "title": "Video8"
+        },
+        {
+          "id": 9,
+          "thumnail": "../assets/disney-thumbnail9.jpg",
+          "title": "Video9"
+        },
+        {
+          "id": 10,
+          "thumnail": "../assets/disney-thumbnail10.jpg",
+          "title": "Video10"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Disney Movies",
+      "thumbnails": [
+        {
+          "id": 1,
+          "thumnail": "../assets/disney-thumbnail1.jpg",
+          "title": "Video1"
+        },
+        {
+          "id": 2,
+          "thumnail": "../assets/disney-thumbnail2.jpg",
+          "title": "Video2"
+        },
+        {
+          "id": 3,
+          "thumnail": "../assets/disney-thumbnail3.jpg",
+          "title": "Video3"
+        },
+        {
+          "id": 4,
+          "thumnail": "../assets/disney-thumbnail4.jpg",
+          "title": "Video4"
+        },
+        {
+          "id": 5,
+          "thumnail": "../assets/disney-thumbnail5.jpg",
+          "title": "Video5"
+        },
+        {
+          "id": 6,
+          "thumnail": "../assets/disney-thumbnail6.jpg",
+          "title": "Video6"
+        },
+        {
+          "id": 7,
+          "thumnail": "../assets/disney-thumbnail7.jpg",
+          "title": "Video7"
+        },
+        {
+          "id": 8,
+          "thumnail": "../assets/disney-thumbnail8.jpg",
+          "title": "Video8"
+        },
+        {
+          "id": 9,
+          "thumnail": "../assets/disney-thumbnail9.jpg",
+          "title": "Video9"
+        },
+        {
+          "id": 10,
+          "thumnail": "../assets/disney-thumbnail10.jpg",
+          "title": "Video10"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Disney Movies",
+      "thumbnails": [
+        {
+          "id": 1,
+          "thumnail": "../assets/disney-thumbnail1.jpg",
+          "title": "Video1"
+        },
+        {
+          "id": 2,
+          "thumnail": "../assets/disney-thumbnail2.jpg",
+          "title": "Video2"
+        },
+        {
+          "id": 3,
+          "thumnail": "../assets/disney-thumbnail3.jpg",
+          "title": "Video3"
+        },
+        {
+          "id": 4,
+          "thumnail": "../assets/disney-thumbnail4.jpg",
+          "title": "Video4"
+        },
+        {
+          "id": 5,
+          "thumnail": "../assets/disney-thumbnail5.jpg",
+          "title": "Video5"
+        },
+        {
+          "id": 6,
+          "thumnail": "../assets/disney-thumbnail6.jpg",
+          "title": "Video6"
+        },
+        {
+          "id": 7,
+          "thumnail": "../assets/disney-thumbnail7.jpg",
+          "title": "Video7"
+        },
+        {
+          "id": 8,
+          "thumnail": "../assets/disney-thumbnail8.jpg",
+          "title": "Video8"
+        },
+        {
+          "id": 9,
+          "thumnail": "../assets/disney-thumbnail9.jpg",
+          "title": "Video9"
+        },
+        {
+          "id": 10,
+          "thumnail": "../assets/disney-thumbnail10.jpg",
+          "title": "Video10"
+        }
+      ]
+    }
   ]
 }
