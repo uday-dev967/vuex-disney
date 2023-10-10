@@ -1,0 +1,93 @@
+.home__page-video-section {
+  margin-top: 5rem;
+  .vidoe__page-container {
+    background-size: cover;
+    height: 90vh;
+    background-position: center;
+    padding: 2rem;
+    padding-top: 30rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .vidoe__page-content {
+      &-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $color-primary-text;
+      }
+      &-actions {
+        margin: 1rem 0rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        .video-btn {
+          color: $color-primary-text;
+          border-radius: 0.2rem;
+          border: 0.2rem solid $color-primary-text;
+          background-color: $color-primary-bg;
+          padding: 1rem;
+          &:hover {
+            cursor: pointer;
+            background-color: $color-treninary-text;
+          }
+        }
+        .watch {
+          color: $color-primary-bg;
+          background-color: $color-primary-text;
+        }
+        &-more {
+          display: flex;
+          gap: 1rem;
+          .more-btn {
+            border: 0.2rem solid $color-primary-text;
+            background-color: $color-primary-bg;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+              cursor: pointer;
+              background-color: $color-treninary-text;
+            }
+          }
+          img {
+            width: 2.1rem;
+            height: auto;
+            color: $color-primary-text;
+          }
+        }
+      }
+      &-text {
+        width: 60%;
+        &-description {
+          color: $color-primary-text;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .vidoe__page-container {
+      .vidoe__page-content {
+        &-text {
+          width: 70%;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .vidoe__page-container {
+      .vidoe__page-content {
+        &-actions {
+          flex-direction: column;
+        }
+        &-text {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

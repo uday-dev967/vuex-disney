@@ -7,13 +7,16 @@
         :key="index"
         class="category-carousel-card"
       >
-        <div class="category-carousel-img__container">
+        <router-link
+          :to="{ name: 'video-show', params: { id: video.id } }"
+          class="category-carousel-img__container"
+        >
           <img
             src="../assets/disney-thumbnail1.jpg"
             :alt="video.title"
             class="category-carousel-card-img"
           />
-        </div>
+        </router-link>
       </li>
     </ul>
     <button class="btn-prev">

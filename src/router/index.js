@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
+import VideoPage from "../views/VideoPage.vue";
 // import RegisterView from "../views/Register.vue";
 
 Vue.use(VueRouter);
@@ -21,14 +22,14 @@ const routes = [
     path: "/home",
     name: "home",
     component: HomeView,
-    meta: { requiresAuth: true },
+    // meta: { requiresAuth: true },
   },
-  // {
-  //   path: "/create",
-  //   name: "create-todo",
-  //   component: () => import("../views/CreateTodo.vue"),
-  //   // meta: { requiresAuth: true },
-  // },
+  {
+    path: "/video/:id",
+    name: "video-show",
+    component: VideoPage,
+    props: true,
+  },
 ];
 
 const router = new VueRouter({
