@@ -27,15 +27,24 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import image from "../assets/disney-thumbnail1.jpg";
 export default {
   props: ["id"],
+  mounted() {
+    const creds = localStorage.getItem("userCreds");
+    const parsedCreds = JSON.parse(creds);
+    this.fetchUsers(parsedCreds);
+  },
   computed: {
     backgroundStyle() {
       return {
         backgroundImage: `linear-gradient(to right, rgba(12, 6, 41, 0.7), rgba(6, 2, 35, 0.7)), url(${image})`,
       };
     },
+  },
+  methods: {
+    ...mapActions("user", ["fetchUsers"]),
   },
 };
 </script>

@@ -13,22 +13,19 @@ const routes = [
     name: "login",
     component: LoginView,
   },
-  // {
-  //   path: "/register",
-  //   name: "register",
-  //   component: RegisterView,
-  // },
+
   {
     path: "/home",
     name: "home",
     component: HomeView,
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
   },
   {
     path: "/video/:id",
     name: "video-show",
     component: VideoPage,
     props: true,
+    meta: { requiresAuth: true },
   },
 ];
 
@@ -37,23 +34,23 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
-// let authToken = localStorage.getItem("authToken");
-// router.beforeEach((to, from, next) => {
-//   authToken = localStorage.getItem("authToken");
-//   console.log(authToken, "auth");
-//   const isAuthenticated = authToken !== null;
-//   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+let authToken = localStorage.getItem("authToken");
+router.beforeEach((to, from, next) => {
+  authToken = localStorage.getItem("authToken");
+  console.log(authToken, "auth");
+  const isAuthenticated = authToken !== null;
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
 
-//   if (requiresAuth && !isAuthenticated) {
-//     // Redirect to the login page or wherever appropriate
-//     next("/");
-//   } else {
-//     next();
-//   }
-// });
+  if (requiresAuth && !isAuthenticated) {
+    // Redirect to the login page or wherever appropriate
+    next("/");
+  } else {
+    next();
+  }
+});
 
-// if (authToken !== null) {
-//   router.push({ name: "home" });
-// }
+if (authToken !== null) {
+  router.push({ name: "home" });
+}
 
 export default router;

@@ -30,11 +30,17 @@ export default {
   created() {
     this.fetchVidoes();
   },
+  mounted() {
+    const creds = localStorage.getItem("userCreds");
+    const parsedCreds = JSON.parse(creds);
+    this.fetchUsers(parsedCreds);
+  },
   computed: {
     ...mapGetters("video", ["getVideosByCategory"]),
   },
   methods: {
     ...mapActions("video", ["fetchVidoes"]),
+    ...mapActions("user", ["fetchUsers"]),
   },
 };
 </script>
