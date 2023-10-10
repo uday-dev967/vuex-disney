@@ -23,14 +23,19 @@
         </p>
       </div>
     </div>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
 import image from "../assets/disney-thumbnail1.jpg";
+import Footer from "../components/Footer.vue";
 export default {
   props: ["id"],
+  components: {
+    "app-footer": Footer,
+  },
   mounted() {
     const creds = localStorage.getItem("userCreds");
     const parsedCreds = JSON.parse(creds);

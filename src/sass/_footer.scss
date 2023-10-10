@@ -1,0 +1,17 @@
+.app-footer {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  .my-footer {
+    text-align: center;
+    color: $color-secondary-bg;
+    font-size: 1rem;
+    max-width: 94%;
+    width: 80%;
+  }
+  @media screen and (max-width: 900px) {
+    .my-footer {
+      font-size: 0.5rem;
+    }
+  }
+}

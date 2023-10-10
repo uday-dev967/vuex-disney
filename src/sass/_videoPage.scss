@@ -2,10 +2,13 @@
   background-image: url("../assets/home-background.png");
   background-size: cover;
   background-position: center;
-  height: 94.25vh;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .vidoe__page-container {
     background-size: cover;
-    height: 90vh;
+    height: 84vh;
     background-position: center;
     padding: 2rem;
     padding-top: 30rem;

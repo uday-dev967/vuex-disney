@@ -9,11 +9,13 @@
         v-bind:videoByCategory="videoByCategory"
       ></my-slider>
     </div>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import Footer from "../components/Footer.vue";
 import Carousel from "../components/Carousel.vue";
 import Categories from "../components/Categories.vue";
 import Slider from "../components/Slider.vue";
@@ -23,6 +25,7 @@ export default {
     carousel: Carousel,
     categories: Categories,
     "my-slider": Slider,
+    "app-footer": Footer,
   },
   data() {
     return {};
