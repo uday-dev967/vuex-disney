@@ -9,24 +9,21 @@
         class="ml-12 nav-bar-list-items"
       >
         <v-row align="center" class="nav-bar-list-items-row">
-          <v-col
-            v-for="(item, index) in navItems"
-            :key="index"
-            cols="auto"
-            class="nav-bar-list-items-col"
-          >
-            <v-icon dark @click="navigate(item.route)">{{ item.icon }}</v-icon>
-            <p
-              class="white--text mt-5 pl-1 caption nav-bar-list-items-col-label"
-            >
-              {{ uppercase(item.label) }}
-            </p>
+          <v-col v-for="(item, index) in navItems" :key="index" cols="auto">
+            <router-link :to="{ name: 'home' }" class="nav-bar-list-items-col">
+              <v-icon dark>{{ item.icon }}</v-icon>
+              <p
+                class="white--text mt-5 pl-1 caption nav-bar-list-items-col-label"
+              >
+                {{ uppercase(item.label) }}
+              </p>
+            </router-link>
           </v-col>
         </v-row>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <template v-if="getLoggedInStatus">
-        <v-btn dark @click="logout" class="mr-5">
+        <v-btn dark @click="signOut" class="mr-5">
           <v-icon left>mdi-logout</v-icon>
           Logout
         </v-btn>
@@ -43,12 +40,12 @@ export default {
   data() {
     return {
       navItems: [
-        { label: "Home", icon: "mdi-home", route: "/home" },
-        { label: "sreach", icon: "mdi-magnify", route: "/home" },
-        { label: "watchlist", icon: "mdi-plus", route: "/home" },
-        { label: "original", icon: "mdi-star", route: "/home" },
-        { label: "movies", icon: "mdi-movie", route: "/home" },
-        { label: "series", icon: "mdi-television", route: "/home" },
+        { label: "Home", icon: "mdi-home", route: "home" },
+        { label: "sreach", icon: "mdi-magnify", route: "sreach" },
+        { label: "watchlist", icon: "mdi-plus", route: "watchlist" },
+        { label: "original", icon: "mdi-star", route: "original" },
+        { label: "movies", icon: "mdi-movie", route: "movies" },
+        { label: "series", icon: "mdi-television", route: "series" },
       ],
     };
   },
@@ -56,16 +53,16 @@ export default {
     ...mapGetters("user", ["getLoggedInStatus"]),
   },
   methods: {
-    ...mapActions("search", ["changeSearchInput"]),
+    ...mapActions("user", ["logout"]),
     resetHome() {
       this.searchInput = "";
       this.changeSearchInput("");
     },
-    logout() {
+    signOut() {
       localStorage.removeItem("authToken");
       localStorage.removeItem("userCreds");
       this.$router.push({ name: "login" });
-      this.$store.dispatch("user/logout");
+      this.logout;
     },
   },
   mixins: [mixins],

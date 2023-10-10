@@ -16,6 +16,7 @@
         .nav-bar-list-items-col {
           display: flex;
           align-items: center;
+          text-decoration: none;
           &:hover {
             background-color: gray;
             cursor: pointer;
