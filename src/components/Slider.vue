@@ -17,6 +17,7 @@
             },
           }"
           class="category-carousel-img__container"
+          ref="card"
         >
           <img
             :src="video.thumnail"
@@ -26,11 +27,13 @@
         </router-link>
       </li>
     </ul>
-    <button class="btn-prev">
-      <img src="../assets/left.svg" class="arrow" />
+
+    <button class="btn-prev" @click="scrollCarousel(-1)">
+      <v-icon dark large class="slider-arrow">mdi-chevron-left</v-icon>
     </button>
-    <button class="btn-next">
-      <img src="../assets/right.svg" class="arrow" />
+
+    <button class="btn-next" @click="scrollCarousel(1)">
+      <v-icon dark large class="slider-arrow">mdi-chevron-right</v-icon>
     </button>
   </div>
 </template>
@@ -39,6 +42,25 @@
 export default {
   name: "my-slider",
   props: ["videoByCategory"],
+  data() {
+    return {
+      firstCardWidth: 0,
+    };
+  },
+  methods: {
+    scrollCarousel(direction) {
+      const carousel = this.$el.querySelector(".category-carousel");
+      this.firstCardWidth = this.$el.querySelector(
+        ".category-carousel-card"
+      ).offsetWidth;
+
+      if (direction === 1) {
+        carousel.scrollLeft += this.firstCardWidth;
+      } else if (direction === -1) {
+        carousel.scrollLeft -= this.firstCardWidth;
+      }
+    },
+  },
 };
 </script>
 
