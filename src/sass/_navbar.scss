@@ -26,3 +26,33 @@
     }
   }
 }
+
+.menu-btn {
+  display: none !important;
+}
+
+.mobile-nav-bar-list-items-col {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .logout-btn {
+    display: none !important;
+  }
+  .menu-btn {
+    display: flex !important;
+  }
+  .nav-bar-list-items {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}

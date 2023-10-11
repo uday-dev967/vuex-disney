@@ -23,10 +23,44 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <template v-if="getLoggedInStatus">
-        <v-btn dark @click="signOut" class="mr-5">
+        <v-btn dark @click="signOut" class="mr-5 logout-btn">
           <v-icon left>mdi-logout</v-icon>
           Logout
         </v-btn>
+
+        <v-menu class="mobile-menu" offset-y>
+          <template v-slot:activator="{ on }">
+            <v-btn v-on="on" dark class="mr-5 menu-btn">
+              <v-icon>mdi-menu </v-icon>
+            </v-btn>
+          </template>
+          <v-list v-if="isScreenSizeLarge">
+            <v-list-item
+              v-for="(item, index) in navItems"
+              :key="index"
+              cols="auto"
+            >
+              <router-link
+                :to="{ name: 'home' }"
+                class="mobile-nav-bar-list-items-col"
+              >
+                <v-icon light>{{ item.icon }}</v-icon>
+                <p
+                  class="black--text mt-5 pl-1 caption mobile-nav-bar-list-items-col-label"
+                >
+                  {{ uppercase(item.label) }}
+                </p>
+              </router-link>
+            </v-list-item>
+
+            <v-list-item
+              ><v-btn dark @click="signOut" class="mr-5">
+                <v-icon left>mdi-logout</v-icon>
+                Logout
+              </v-btn></v-list-item
+            >
+          </v-list>
+        </v-menu>
       </template>
     </v-app-bar>
   </div>
@@ -47,10 +81,16 @@ export default {
         { label: "movies", icon: "mdi-movie", route: "movies" },
         { label: "series", icon: "mdi-television", route: "series" },
       ],
+      menu: false,
+      windowWidth: window.innerWidth,
     };
   },
   computed: {
     ...mapGetters("user", ["getLoggedInStatus"]),
+    isScreenSizeLarge() {
+      console.log(window.innerWidth);
+      return window.innerWidth < 950;
+    },
   },
   methods: {
     ...mapActions("user", ["logout"]),
@@ -63,6 +103,9 @@ export default {
       localStorage.removeItem("userCreds");
       this.$router.push({ name: "login" });
       this.logout;
+    },
+    handleMenuItemClick(option) {
+      console.log(option);
     },
   },
   mixins: [mixins],
