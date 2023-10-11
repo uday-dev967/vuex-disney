@@ -34,7 +34,7 @@
               <v-icon>mdi-menu </v-icon>
             </v-btn>
           </template>
-          <v-list v-if="isScreenSizeLarge">
+          <v-list class="mobile-menu-bar">
             <v-list-item
               v-for="(item, index) in navItems"
               :key="index"
@@ -87,10 +87,6 @@ export default {
   },
   computed: {
     ...mapGetters("user", ["getLoggedInStatus"]),
-    isScreenSizeLarge() {
-      console.log(window.innerWidth);
-      return window.innerWidth < 950;
-    },
   },
   methods: {
     ...mapActions("user", ["logout"]),

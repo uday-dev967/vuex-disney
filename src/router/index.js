@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import VideoPage from "../views/VideoPage.vue";
-// import NotFound from "../views/NotFound.vue";
+import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -13,7 +13,6 @@ const routes = [
     name: "login",
     component: LoginView,
   },
-
   {
     path: "/home",
     name: "home",
@@ -27,7 +26,12 @@ const routes = [
     props: true,
     meta: { requiresAuth: true },
   },
-  // { path: "*", name: "not-found", component: import("../views/NotFound.vue") },
+  {
+    path: "/not-found",
+    name: "not-found",
+    component: NotFound,
+  },
+  { path: "*", redirect: { name: "not-found" } },
 ];
 
 const router = new VueRouter({
