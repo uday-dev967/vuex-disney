@@ -55,8 +55,9 @@ export default {
   },
   methods: {
     ...mapActions("user", ["fetchUsers"]),
-    submitForm() {
-      this.fetchUsers(this.creds);
+    async submitForm() {
+      const status = await this.fetchUsers(this.creds);
+      console.log(status);
       if (!this.getLoginErrors.isError) {
         localStorage.setItem("authToken", "loggedIn");
         const credentials = JSON.stringify(this.creds);

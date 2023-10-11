@@ -8,11 +8,18 @@
         class="category-carousel-card"
       >
         <router-link
-          :to="{ name: 'video-show', params: { id: video.id } }"
+          :to="{
+            name: 'video-show',
+            params: {
+              id: video.id,
+              cat: videoByCategory.cat,
+              catId: videoByCategory.id,
+            },
+          }"
           class="category-carousel-img__container"
         >
           <img
-            src="../assets/disney-thumbnail1.jpg"
+            :src="video.thumnail"
             :alt="video.title"
             class="category-carousel-card-img"
           />

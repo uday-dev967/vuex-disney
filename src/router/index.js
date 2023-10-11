@@ -21,13 +21,13 @@ const routes = [
     meta: { requiresAuth: true },
   },
   {
-    path: "/video/:id",
+    path: "/video/:cat/:id",
     name: "video-show",
     component: VideoPage,
     props: true,
     meta: { requiresAuth: true },
   },
-  { path: "*", name: "not-found", component: import("../views/NotFound.vue") },
+  // { path: "*", name: "not-found", component: import("../views/NotFound.vue") },
 ];
 
 const router = new VueRouter({

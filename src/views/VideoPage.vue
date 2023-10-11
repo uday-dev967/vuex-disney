@@ -2,7 +2,7 @@
   <div class="home__page-video-section">
     <div class="vidoe__page-container" :style="backgroundStyle">
       <div class="vidoe__page-content">
-        <h1 class="vidoe__page-content-title">Video1</h1>
+        <h1 class="vidoe__page-content-title">{{ video.title }}</h1>
         <div class="vidoe__page-content-title">
           <v-btn class="mr-1">Watch Now</v-btn>
           <v-btn class="mr-1">Trailer</v-btn>
@@ -16,10 +16,7 @@
           </div>
         </div>
         <p class="white--text">
-          A beautiful girl, Snow White, takes refuge in the forest in the house
-          of seven dwarfs to hide from her stepmother, the wicked Queen. The
-          Queen is jealous because she wants to be known as 'the fairest in the
-          land,' and Snow White's beauty surpasses her own.", "title": "Video1
+          {{ video.description }}
         </p>
       </div>
     </div>
@@ -28,28 +25,47 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import image from "../assets/disney-thumbnail1.jpg";
+import { mapActions, mapGetters } from "vuex";
+
 import Footer from "../components/Footer.vue";
 export default {
-  props: ["id"],
+  props: ["id", "cat", "catId"],
+  data() {
+    return {
+      video: {},
+    };
+  },
   components: {
     "app-footer": Footer,
   },
-  mounted() {
-    const creds = localStorage.getItem("userCreds");
-    const parsedCreds = JSON.parse(creds);
-    this.fetchUsers(parsedCreds);
+  created() {
+    this.isTheUserLoggedIn();
+    this.getTheVideo();
   },
+
   computed: {
     backgroundStyle() {
       return {
-        backgroundImage: `linear-gradient(to right, rgba(12, 6, 41, 0.7), rgba(6, 2, 35, 0.7)), url(${image})`,
+        backgroundImage: `linear-gradient(to right, rgba(12, 6, 41, 0.7), rgba(6, 2, 35, 0.7)), url(${
+          this.video
+            ? this.video.thumnail
+            : "https://image.tmdb.org/t/p/w500//puJKgNcWaGgMk5VHanSSomUTpmw.jpg"
+        })`,
       };
     },
   },
   methods: {
     ...mapActions("user", ["fetchUsers"]),
+    ...mapActions("video", ["fetchVideo"]),
+    ...mapGetters("video", ["getVideoByid", "getVideo"]),
+    async getTheVideo() {
+      this.video = await this.fetchVideo({ catId: this.catId, id: this.id });
+    },
+    async isTheUserLoggedIn() {
+      const creds = localStorage.getItem("userCreds");
+      const parsedCreds = JSON.parse(creds);
+      await this.fetchUsers(parsedCreds);
+    },
   },
 };
 </script>

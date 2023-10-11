@@ -6,7 +6,7 @@
       <my-slider
         v-for="(videoByCategory, index) in getVideosByCategory"
         :key="index"
-        v-bind:videoByCategory="videoByCategory"
+        :videoByCategory="videoByCategory"
       ></my-slider>
     </div>
     <app-footer></app-footer>

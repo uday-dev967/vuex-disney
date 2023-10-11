@@ -24,7 +24,7 @@ export const mutations = {
 };
 export const actions = {
   fetchUsers({ commit }, creds) {
-    LoginService.getUsers()
+    return LoginService.getUsers()
       .then((response) => {
         const users = response.data;
         const user = users.find(
@@ -38,6 +38,7 @@ export const actions = {
           commit("SET_USER", user);
           commit("SET_LOG", true);
           commit("SET_ERROR", { isError: false, errMsg: "" });
+          return "uday";
         } else {
           throw new Error(
             "Your Credintials does not match with any existing users"
@@ -46,6 +47,7 @@ export const actions = {
       })
       .catch((error) => {
         commit("SET_ERROR", { isError: true, errMsg: error });
+        return error;
       });
   },
   logout({ commit }) {
